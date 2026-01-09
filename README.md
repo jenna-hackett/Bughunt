@@ -8,14 +8,14 @@ This project is designed to help you verify your development environment and ref
 
 This is a summary of the main tasks you need to complete.
 
-- [ ] **Part 1: Environment**
-  - [ ] Verify Node.js is installed correctly.
-  - [ ] Capture a screenshot of the `node` prompt with your name.
-- [ ] **Part 2: The Project**
-  - [ ] Download a zip folder of this repository (or fork) from github and initialize a new repo with it. When this is complete, you should be able to edit the code in your editor and then push it to github
+- [x] **Part 1: Environment**
+  - [x] Verify Node.js is installed correctly.
+  - [x] Capture a screenshot of the `node` prompt with your name.
+- [x] **Part 2: The Project**
+  - [x] Download a zip folder of this repository (or fork) from github and initialize a new repo with it. When this is complete, you should be able to edit the code in your editor and then push it to github
   - [ ] Create a `.gitignore` file.
-  - [ ] Create a folder for static assets (e.g., `public/` or `assets/`)
-  - [ ] Add your Node.js screenshot to the asset folder.
+  - [x] Create a folder for static assets (e.g., `public/` or `assets/`)
+  - [x] Add your Node.js screenshot to the asset folder.
   - [ ] Fix all bugs in the HTML, CSS, and JavaScript files.
   - [ ] Implement the tasks in the script.js file to the best of your ability using Javascript conventions
 - [ ] **Part 3: Submission**
@@ -52,6 +52,6 @@ By completing this assignment, you will practice:
 - Verifying a Node.js development environment.
 - Implementing semantic HTML for better structure and accessibility.
 - Debugging common HTML, CSS, and JavaScript errors.
-- Reinforce familarity with foundational Git Practices
+- Reinforce familiarity with foundational Git Practices
 - Organizing a project with a dedicated asset folder.
 - Deploying a static website to GitHub Pages.
