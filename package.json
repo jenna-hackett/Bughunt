@@ -1,0 +1,24 @@
+{
+  "name": "bughunt",
+  "version": "1.0.0",
+  "description": "This project is designed to help you verify your development environment and refresh your HTML, CSS, and JavaScript debugging skills.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenna-hackett/Bughunt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jenna-hackett/Bughunt/issues"
+  },
+  "homepage": "https://github.com/jenna-hackett/Bughunt#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
