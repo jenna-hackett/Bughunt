@@ -14,7 +14,7 @@ const characters = [
   { id: 10, name: "Padmé Amidala", age: 27 },
 ];
 
-// broken test data for exercise 6
+// broken test data for exercise 6.
 const brokenCharacters = [
   { id: 11, age: 30 },
   { id: 12, name: "Harry Potter" },
@@ -26,13 +26,13 @@ const brokenCharacters = [
 // Then, dynamically create <li> elements for each character name and append them to the HTML unordered list element 
 // with the id "names-list".
 
-// Get the target list element
+// Get the target list element.
 const namesList = document.getElementById("names-list");
 
-// Iterate through characters and process each one
+// Iterate through characters and process each one.
 characters.forEach((character) => {
   console.log(character.name);
-// Create <li> elements and append to the list
+// Create <li> elements and append to the list.
   const li = document.createElement("li");
   li.textContent = character.name;
   namesList.appendChild(li);
@@ -42,13 +42,13 @@ characters.forEach((character) => {
 // Log each filtered character's name to the console. Then, dynamically create <li> elements for each filtered character 
 // and append them to the HTML unordered list element with the id "young-characters-list".
 
-// Get the target list element
+// Get the target list element.
 const youngCharactersList = document.getElementById("young-characters-list");
 
-// Filter characters by age
+// Filter characters by age.
 const youngCharacters = characters.filter((character) => character.age < 40);
 
-// Log names, create <li> element, and append names to the list
+// Log names, create <li> element, and append names to the list.
 youngCharacters.forEach((character) => {
   console.log(character.name);
   const li = document.createElement("li");
@@ -61,12 +61,41 @@ youngCharacters.forEach((character) => {
 // Dynamically generate <li> elements for each name and append them to a target HTML list element.
 // Call this function with the characters array and render the results in the unordered list with id "function-list".
 
+// Define the reusable function.
+function renderCharacters (array, targetId) {
+  // Get the target list element.
+  const functionList = document.getElementById(targetId);
+  // Iterate through the array, create <li> elements and append to the list.
+  array.forEach((character) => {
+    const li = document.createElement("li");
+    li.textContent = character.name;
+    functionList.appendChild(li);
+  });
+}
+// Call the function to render characters on the page.
+renderCharacters(characters, "function-list");
 
 // 4. Write a function that accepts two parameters: an array of character objects and a numeric age threshold.
 // Inside the function, filter the array to include only characters whose age is below the threshold value.
 // For each filtered character, create an <li> element with their name and append it to the target list.
 // Call this function and render the results in the unordered list with id "age-filter-list".
 
+
+function renderBelowForty (array, ageThreshold, targetId) {
+  // Get the target list element.
+  const ageFilterList = document.getElementById(targetId);
+  // Filter characters by age threshold.
+  const filteredCharacters = array.filter((character) => character.age < ageThreshold);
+  // Iterate through filtered characters, create <li> elements and append to the list.
+  filteredCharacters.forEach((character) => {
+    const li = document.createElement("li");
+    li.textContent = character.name;
+    ageFilterList.appendChild(li);
+  });
+}
+
+// Call the function to render characters below the age threshold on the page.
+renderBelowForty(characters, 40, "age-filter-list");
 
 // 5. Enhance your rendering functions from exercises 3 and 4 with error handling logic.
 // Before accessing the name property of each character object, check whether the "name" property exists.

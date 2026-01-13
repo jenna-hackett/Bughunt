@@ -16,10 +16,10 @@ This is a summary of the main tasks you need to complete.
   - [x] Create a `.gitignore` file.
   - [x] Create a folder for static assets (e.g., `public/` or `assets/`)
   - [x] Add your Node.js screenshot to the asset folder.
-  - [ ] Fix all bugs in the HTML, CSS, and JavaScript files.
+  - [x] Fix all bugs in the HTML, CSS, and JavaScript files.
   - [ ] Implement the tasks in the script.js file to the best of your ability using Javascript conventions
 - [ ] **Part 3: Submission**
-  - [ ] Make at least two meaningful Git commits and push them to GitHub.
+  - [x] Make at least two meaningful Git commits and push them to GitHub.
   - [ ] Deploy your fixed website using GitHub Pages.
   - [ ] Submit your repository and live GitHub Pages links to Brightspace.
 
@@ -38,7 +38,7 @@ Look for common errors across all files. There are issues with syntax, logic, an
   - Check for simple typos in property names or selectors.
   - Test the site on different screen sizes using your browser's developer tools. Is it responsive?
   - Use your browser's inspector to check for accessibility issues, like poor color contrast.
-- **JavaScript (`index.js`)**:
+- **JavaScript (`script.js`)**:
   - **Always check the browser console first!** It will tell you where the errors are.
   - Look for syntax errors like missing commas, brackets, or parentheses.
   - Verify that the IDs used in `getElementById()` match the IDs in your `index.html` file exactly.
