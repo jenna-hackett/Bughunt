@@ -20,6 +20,7 @@ const brokenCharacters = [
   { id: 12, name: "Harry Potter" },
   { id: 13, age: 150 },
   { id: 14, name: "Ron Weasley", age: 45 },
+  { id: 15, name: "Hermione Granger", age: 25 }
 ];
 
 // 1. Iterate through the characters array and output each character's name to the console using console.log().
@@ -61,7 +62,6 @@ youngCharacters.forEach((character) => {
 // Dynamically generate <li> elements for each name and append them to a target HTML list element.
 // Call this function with the characters array and render the results in the unordered list with id "function-list".
 
-// Define the reusable function.
 function renderCharacters (array, targetId) {
   // Get the target list element.
   const functionList = document.getElementById(targetId);
@@ -80,13 +80,21 @@ renderCharacters(characters, "function-list");
 // For each filtered character, create an <li> element with their name and append it to the target list.
 // Call this function and render the results in the unordered list with id "age-filter-list".
 
-
+// Function to filter characters by age and render to list.
 function renderBelowForty (array, ageThreshold, targetId) {
   // Get the target list element.
   const ageFilterList = document.getElementById(targetId);
-  // Filter characters by age threshold.
+  
+  if (ageFilterList) {
+    ageFilterList.innerHTML = "";
+  } else {
+    console.error(`Element with ID "${targetId}" not found.`);
+    return;
+  }
+
   const filteredCharacters = array.filter((character) => character.age < ageThreshold);
-  // Iterate through filtered characters, create <li> elements and append to the list.
+
+  // Iterate through the filtered array, create <li> elements and append to the list.
   filteredCharacters.forEach((character) => {
     const li = document.createElement("li");
     li.textContent = character.name;
@@ -94,16 +102,113 @@ function renderBelowForty (array, ageThreshold, targetId) {
   });
 }
 
-// Call the function to render characters below the age threshold on the page.
+// Call the function to render characters below age 40.
 renderBelowForty(characters, 40, "age-filter-list");
+
 
 // 5. Enhance your rendering functions from exercises 3 and 4 with error handling logic.
 // Before accessing the name property of each character object, check whether the "name" property exists.
 // If a character object is missing the name property, use console.error() to log a descriptive error message to the console,
 // and dynamically create and display the error message in the HTML div element with id "error-messages".
 
+function renderCharactersWithErrorHandling(array, targetId, errorTargetId, successTargetId) {
+  const listElement = document.getElementById(targetId);
+  const errorElement = document.getElementById(errorTargetId);
+  const successElement = document.getElementById(successTargetId);
+
+  // Clear previous content.
+  listElement.innerHTML = "";
+  errorElement.innerHTML = "";
+  successElement.innerHTML = "";
+
+  // Start with a Success Flag set to true.
+  let allValid = true;
+
+  array.forEach((character) => {
+    if (!character.name) {
+      // Set flag to false if error is found.
+      allValid = false;
+
+      // Log error message to console.
+      const message = `Error: Character with ID ${character.id} is missing the name property.`;
+      console.error(message);
+
+      // Create and display error message in the error div.
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "error-message";
+      errorDiv.textContent = message;
+      errorElement.appendChild(errorDiv);
+    } else {
+      // Create and append <li> element for valid character.
+      const li = document.createElement("li");
+      li.textContent = character.name;
+      listElement.appendChild(li);
+    }
+  });
+
+  // If the flag is still true, the success box will be shown.
+  if (allValid && array.length > 0) {
+    const successDiv = document.createElement("div");
+    successDiv.className = "success";
+    successDiv.textContent = "Data Validation Successful: All characters processed without errors.";
+    successElement.appendChild(successDiv);
+  }
+}
+
+function renderBelowFortyWithErrorHandling(array, ageThreshold, targetId, errorTargetId, successTargetId) {
+  const ageFilterList = document.getElementById(targetId);
+  const errorMessages = document.getElementById(errorTargetId);
+  const successElement = document.getElementById(successTargetId);
+
+  // Clear previous content.
+  if (ageFilterList) ageFilterList.innerHTML = "";
+  if (errorMessages) errorMessages.innerHTML = "";
+  if (successElement) successElement.innerHTML = "";
+
+  // Filter characters by age.
+  const filteredCharacters = array.filter((character) => character.age < ageThreshold);
+
+  // Initialize Success Flag.
+  let allValid = true;
+
+  // Iterate and validate data
+  filteredCharacters.forEach((character) => {
+    if (!character.name) {
+      allValid = false; // Flag changes to false if a name is missing.
+
+      // Log error message to console.
+      const message = `Error: Character with ID ${character.id} is missing the name property.`;
+      console.error(message);
+
+      // Create and display error message in the error div.
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "error-message";
+      errorDiv.textContent = message;
+      errorMessages.appendChild(errorDiv);
+    } else {
+      // Create and append <li> element for valid character.
+      const line = document.createElement("li");
+      line.textContent = character.name;
+      ageFilterList.appendChild(line);
+    }
+  });
+
+  // Check for the Success Flag.
+  if (allValid && filteredCharacters.length > 0) {
+    const successDiv = document.createElement("div");
+    successDiv.className = "success";
+    successDiv.textContent = `Success: All characters under ${ageThreshold} processed without errors.`;
+    successElement.appendChild(successDiv);
+  }
+}
+
+// Call the function to render characters with error handling on the page.
+renderCharactersWithErrorHandling(characters, "error-handling-list", "error-messages", "success-message-5");
+
 
 // 6. Create a second array called "brokenCharacters" that intentionally contains objects with missing name properties 
 // (e.g., objects with only id and age). Pass this broken array to your error-handling functions from exercise 5.
 // Verify that your error handling correctly identifies the missing name properties, logs appropriate error messages 
 // to the console, and displays those error messages in the HTML div element with id "broken-array-errors".
+
+renderCharactersWithErrorHandling(brokenCharacters, "broken-array-list", "broken-array-errors", "success-message-6");

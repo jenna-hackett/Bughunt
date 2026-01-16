@@ -5,8 +5,8 @@ Markdown for quick notes on issues to fix/look into after a first read through o
 ## General Tasks
 
 - [x] Add a `.gitignore` file and...
-- [!!!] include `node_modules` in it
-- [ ] Organize all static assets `(e.g., images from the broken project)` into the asset directory.
+- [x] include `node_modules` in it
+- [x] Organize all static assets `(e.g., images from the broken project)` into the asset directory.
 
 ## HTML
 
@@ -30,12 +30,12 @@ Markdown for quick notes on issues to fix/look into after a first read through o
 - [x] General proof-read for any typos
 - [x] NEGATIVE values!!!
 - [x] Browser inspector for visibility issues.
-- [x] ul li:hover {transform: translateX(4px);}. `translateX` is a new one for me. Not sure if spelling mistake or no. (Checked: Not a spelling error. Removed.)
+- [x] ul li:hover {transform: translateX(4px);}. `translateX` is a new one for me. Not sure if spelling mistake or no. (Checked: Not a spelling error and removed. Not overly fond of the transition it completes with the links.)
 - [x] The CSS must be responsive and use an `accessible color scheme`.
 - [x] Should we be using all one value of measurement? `IE: All rem or all pixels`. (Checked: Hybrid approach seems to be best since different areas of the webpage have different needs.)
-- [ ] Combine CSS styling where applicable to reduce code redundancy.
+- [x] Combine CSS styling where applicable to reduce code redundancy.
 
 ## JavaScript
 
 - [x] no `","` after Skywalker.
-- [ ] Check: Browser console!!!
+- [x] Check: Browser console!!! [x] Only errors are the ones from exercise 6, two of the characters in the list are missing the name property on purpose for the exercise.
